@@ -3,19 +3,27 @@
 //Set up an array of leters
 
 var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-
-var randomLetter = Math.floor(Math.random() * letters.length);
-var chosenLetter = letters[randomLetter];
-var lettersGuessed = [];
-var guessesLeft = 10;
-var wins =0;
+var wins = 0;
 var losses = 0;
+var randomLetter = Math.floor(Math.random() * letters.length);
+    var chosenLetter = letters[randomLetter];
+    var lettersGuessed = [];
+    var guessesLeft = 10;
 
+function startGame() {
 
+    var chosenLetter = letters[randomLetter];
+    var lettersGuessed = [];
+    var guessesLeft = 10;
+    
+    
+
+console.log(chosenLetter);
+}
 //Choose a random letter
 function userGuess() {
     
-console.log(chosenLetter);
+
 }
 
 //Record key press
@@ -24,7 +32,11 @@ document.onkeypress = function (event) {
 
     if (playerGuess === chosenLetter) {
         wins++;
-
+        alert("You Win!");
+        function empty() {
+            lettersGuessed = [];
+        }
+        empty();
     }
 
     userGuess();
@@ -44,15 +56,19 @@ document.onkeypress = function (event) {
     }
     else {
         lettersGuessed.push(playerGuess);
-        document.getElementById("playerGuess").innerHTML = lettersGuessed;
+        document.getElementById("guesses").innerHTML = lettersGuessed;
         console.log(lettersGuessed);
     }
 
+
+    
+    
+    
     document.getElementById("wins").innerHTML = wins;
     document.getElementById("losses").innerHTML = losses;
-    document.getElementById("guesses").innerHTML = guessesLeft;
+    document.getElementById("playerGuess").innerHTML = guessesLeft;
     
 }
 
-
+startGame();
 
